@@ -12,7 +12,7 @@ socket.on('connect', () => {
     console.log(msg)
   })
   socket.on('update', (update) => {
-    console.log(oldValue)
+    console.log(update)
     oldValue = {...oldValue, update}
     root.textContent = JSON.stringify(oldValue)
   })
