@@ -28,7 +28,8 @@ io.on('connection', async (socket) => {
   socket.on('pushUpdate', (newData) => {
     oldPayload = {...oldPayload, ...newData}
     client.set('old-payload', JSON.stringify(oldPayload))
-    io.emit('update', oldPayload)
+    client.publish('push-update', JSON.stringify(oldPayload))
+    // io.emit('update', oldPayload)
   })
 })
 
